@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 const UpdateData = ({ userId }) => {
@@ -8,29 +8,8 @@ const UpdateData = ({ userId }) => {
     age: "",
     address: "",
     email: "",
+    password: "",
   });
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`http://localhost:5000/users`);
-        if (response.data && response.data.id) {
-          setUserData((prevData) => ({
-            ...prevData,
-            id: response.data.id,
-            name: response.data.name,
-            age: response.data.age,
-            address: response.data.address,
-            email: response.data.email,
-          }));
-        }
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   const handleChange = (e) => {
     setUserData({ ...userData, [e.target.name]: e.target.value });
@@ -40,26 +19,27 @@ const UpdateData = ({ userId }) => {
     e.preventDefault();
     try {
       await axios.put(`http://localhost:5000/users`, userData);
-      window.alert('Data updated successfully');
+      window.alert("Data updated successfully");
       window.location.reload();
     } catch (error) {
-      console.error('Error updating data:', error.response); // Use error.response to access the response details
+      alert(error.response.data.error)
+      console.error("Error updating data:", error.response); 
     }
   };
-  
 
   return (
     <div className="bg-white px-6 py-4 rounded-md shadow-md">
       <h2 className="text-2xl font-bold mb-4">Update Data:</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="id" className="block">
+          <label htmlFor="idUpdate" className="block">
             ID:
           </label>
           <input
             type="text"
-            id="id"
+            id="idUpdate"
             name="id"
+            placeholder="Enter  ID"
             value={userData.id}
             onChange={handleChange}
             className="border rounded-md py-2 px-3 w-full"
@@ -73,6 +53,7 @@ const UpdateData = ({ userId }) => {
             type="text"
             id="name"
             name="name"
+            placeholder="Enter Name"
             value={userData.name}
             onChange={handleChange}
             className="border rounded-md py-2 px-3 w-full"
@@ -86,6 +67,7 @@ const UpdateData = ({ userId }) => {
             type="text"
             id="age"
             name="age"
+            placeholder="Enter Age"
             value={userData.age}
             onChange={handleChange}
             className="border rounded-md py-2 px-3 w-full"
@@ -98,6 +80,7 @@ const UpdateData = ({ userId }) => {
           <input
             type="text"
             id="address"
+            placeholder="Enter Address"
             name="address"
             value={userData.address}
             onChange={handleChange}
@@ -111,15 +94,30 @@ const UpdateData = ({ userId }) => {
           <input
             type="text"
             id="email"
+            placeholder="Enter Email"
             name="email"
             value={userData.email}
             onChange={handleChange}
             className="border rounded-md py-2 px-3 w-full"
           />
         </div>
+        <div>
+          <label htmlFor="password" className="block">
+            Password:
+          </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter Password"
+            value={userData.password}
+            onChange={handleChange}
+            className="border rounded-md py-2 px-3 w-full"
+          />
+        </div>
         <button
           type="submit"
-          className="bg-blue-500 text-white rounded-md py-2 px-4 hover:bg-blue-600"
+          className="bg-blue-500 text-white rounded-md py-2 w-full hover:bg-blue-600"
         >
           Update Data
         </button>
