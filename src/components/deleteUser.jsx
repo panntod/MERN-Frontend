@@ -15,7 +15,6 @@ const DeleteData = () => {
       window.alert("Data deleted successfully");
       window.location.reload();
     } catch (error) {
-      console.error("Error deleting data:", error);
       window.alert("Error deleting data");
     }
   };
@@ -32,6 +31,7 @@ const DeleteData = () => {
             type="text"
             id="id"
             name="id"
+            placeholder="ID"
             value={id}
             onChange={handleChange}
             className="border rounded-md py-2 px-3 w-full"
@@ -39,7 +39,7 @@ const DeleteData = () => {
         </div>
         <button
           type="submit"
-          className="bg-red-500 text-white rounded-md py-2 px-4 hover:bg-red-600"
+          className="bg-red-500 text-white rounded-md py-2 w-full hover:bg-red-600"
         >
           Delete Data
         </button>
