@@ -7,6 +7,7 @@ const AddData = () => {
     age: "",
     address: "",
     email: "",
+    password: ""
   });
 
   const handleChange = (e) => {
@@ -20,7 +21,7 @@ const AddData = () => {
       window.alert("Data added successfully");
       window.location.reload(); 
     } catch (error) {
-      console.error("Error adding data:", error);
+      alert(error.statusText);
     }
   };
 
@@ -29,12 +30,13 @@ const AddData = () => {
       <h2 className="text-2xl font-bold mb-4">Add Data:</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="name" className="block">
+          <label htmlFor="nameInsert" className="block">
             Name:
           </label>
           <input
             type="text"
-            id="name"
+            id="nameInsert"
+            placeholder="Enter Name"
             name="name"
             value={formData.name}
             onChange={handleChange}
@@ -42,12 +44,13 @@ const AddData = () => {
           />
         </div>
         <div>
-          <label htmlFor="age" className="block">
+          <label htmlFor="ageInsert" className="block">
             Age:
           </label>
           <input
-            type="text"
-            id="age"
+            type="number"
+            id="ageInsert"
+            placeholder="Enter Age"
             name="age"
             value={formData.age}
             onChange={handleChange}
@@ -55,34 +58,50 @@ const AddData = () => {
           />
         </div>
         <div>
-          <label htmlFor="address" className="block">
+          <label htmlFor="addressInsert" className="block">
             Address:
           </label>
           <input
             type="text"
-            id="address"
+            id="addressInsert"
             name="address"
+            placeholder="Enter Address"
             value={formData.address}
             onChange={handleChange}
             className="border rounded-md py-2 px-3 w-full"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block">
+          <label htmlFor="emailInsert" className="block">
             Email:
           </label>
           <input
-            type="text"
-            id="email"
+            type="email"
+            id="emailInsert"
+            placeholder="Enter Email"
             name="email"
             value={formData.email}
             onChange={handleChange}
             className="border rounded-md py-2 px-3 w-full"
           />
         </div>
+        <div>
+          <label htmlFor="passwordInsert" className="block">
+            Password:
+          </label>
+          <input
+            type="password"
+            id="passwordInsert"
+            name="password"
+            placeholder="Enter Password"
+            value={formData.password}
+            onChange={handleChange}
+            className="border rounded-md py-2 px-3 w-full"
+          />
+        </div>
         <button
           type="submit"
-          className="bg-green-500 text-white rounded-md py-2 px-4 hover:bg-green-600"
+          className="bg-green-500 text-white rounded-md py-2 w-full hover:bg-green-600"
         >
           Add Data
         </button>
