@@ -10,6 +10,7 @@ const DisplayData = () => {
         const response = await axios.get("http://localhost:5000/users"); 
         setUserData(response.data);
       } catch (error) {
+        alert("Error fetching data:");
         console.error("Error fetching data:", error);
       }
     };
@@ -23,11 +24,11 @@ const DisplayData = () => {
       <table className="w-[60rem] divide-y divide-gray-200 rounded-md overflow-hidden shadow-md">
         <thead className="bg-blue-400">
           <tr>
-            <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Name</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Age</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Email</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Address</th>
-            <th className="px-6 py-3 text-xs font-medium text-center text-white uppercase tracking-wider">ID</th>
+            <th className="px-6 py-3 text-left text-md font-medium text-white uppercase tracking-wider">Name</th>
+            <th className="px-6 py-3 text-left text-md font-medium text-white uppercase tracking-wider">Age</th>
+            <th className="px-6 py-3 text-left text-md font-medium text-white uppercase tracking-wider">Email</th>
+            <th className="px-6 py-3 text-left text-md font-medium text-white uppercase tracking-wider">Address</th>
+            <th className="px-6 py-3 text-md font-medium text-center text-white uppercase tracking-wider">ID</th>
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
