@@ -1,8 +1,36 @@
-# React + Vite
+# MERN  APP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Deskripsi
 
-Currently, two official plugins are available:
+Proyek ini merupakan sebuah website yang dibangun dengan menggunakan teknologi MERN (MongoDB, Express, React, Node.js). Website ini memungkinkan pengguna untuk melakukan operasi CRUD (Create, Read, Update, Delete) pada data tertentu dan memiliki sistem login untuk mengelola akses.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Fitur
+
+- Sistem login untuk mengatur akses pengguna.
+- Sistem CRUD User dan Product
+- Akses MongoDb
+
+## Cara Menjalankan Aplikasi
+
+### Langkah 1: Clone Backend
+
+Clone repository backend proyek ini dengan menggunakan perintah berikut:
+```
+git clone https://github.com/panntod/MERN-Backend.git
+```
+
+### Langkah 2: Install Dependensi
+
+Masuk ke direktori frontend dan lakukan instalasi dependensi dengan perintah:
+```
+npm install
+```
+
+Pastikan MongoDB sudah berjalan atau terkoneksi dengan benar.
+
+### Langkah 3: Menjalankan Frontend
+
+Selanjutnya, untuk menjalankan frontend:
+```
+npm run dev
+```
