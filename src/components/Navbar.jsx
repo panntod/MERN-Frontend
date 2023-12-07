@@ -16,6 +16,11 @@ const Navbar = () => {
               Product
             </a>
           </li>
+          <li>
+            <a href="/photo" className="hover:text-thirdColor text-xl font-medium hover:bg-secondColor px-5 py-3 rounded-md">
+              Photo
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
